@@ -1,6 +1,6 @@
 import express from "express";
-import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 import apiRouter from "./routes.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
