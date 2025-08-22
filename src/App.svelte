@@ -2,6 +2,16 @@
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
+  import { testApi } from './services/api'
+
+  let apiResult: string = '';
+  let loading = false;
+
+  async function handleTestApi() {
+    loading = true;
+    apiResult = await testApi();
+    loading = false;
+  }
 </script>
 
 <main>
@@ -17,6 +27,14 @@
 
   <div class="card">
     <Counter />
+      <div style="margin-top:2em">
+        <button on:click={handleTestApi} disabled={loading}>
+          {loading ? 'Testuję...' : 'Testuj API'}
+        </button>
+        {#if apiResult}
+          <div class="api-result">Wynik API: {apiResult}</div>
+        {/if}
+      </div>
   </div>
 
   <p>
@@ -43,5 +61,14 @@
   }
   .read-the-docs {
     color: #888;
+  }
+
+  .api-result {
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    background: #f6f6f6;
+    border-radius: 6px;
+    font-size: 1em;
+    color: #333;
   }
 </style>
