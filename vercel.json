@@ -1,6 +1,6 @@
 {
     "functions": {
-        "api/vercel.js": {
+        "api/dist/vercel.js": {
             "maxDuration": 10
         }
     },
@@ -11,7 +11,7 @@
         },
         {
             "src": "/api/(.*)",
-            "dest": "/api/vercel.js"
+            "dest": "/api/dist/vercel.js"
         },
         {
             "src": "/(.*)",
