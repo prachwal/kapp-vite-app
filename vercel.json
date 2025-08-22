@@ -1,21 +1,21 @@
 {
     "functions": {
-        "api/vercel.js": {
+        "api/vercel.ts": {
             "maxDuration": 10
         }
     },
     "routes": [
         {
             "src": "/assets/(.*)",
-            "dest": "/dist/client/assets/$1"
+            "dest": "/dist/assets/$1"
         },
         {
             "src": "/api/(.*)",
-            "dest": "/api/vercel.js"
+            "dest": "/api/vercel.ts"
         },
         {
             "src": "/(.*)",
-            "dest": "/dist/client/$1"
+            "dest": "/dist/$1"
         }
     ]
 }

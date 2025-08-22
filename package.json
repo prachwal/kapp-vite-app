@@ -3,21 +3,29 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=18 <24"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run build:api",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
-    "api": "PORT=3001 node api/index.js"
+    "api": "rm -rf dist/api && npm run build:api && PORT=3001 node dist/api/index.js",
+    "api:dev": "PORT=3001 tsx watch api/index.ts",
+    "build:api": "tsc -p tsconfig.api.json"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^6.0.0",
     "@tsconfig/svelte": "^5.0.4",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
     "svelte": "^5.35.5",
     "svelte-check": "^4.2.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.4",
     "typescript": "~5.8.3",
-    "vite": "^7.0.4",
-    "@types/node": "^24.3.0"
+    "vite": "^7.0.4"
   },
   "dependencies": {
     "compression": "^1.7.4",
