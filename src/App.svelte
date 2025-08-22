@@ -2,6 +2,7 @@
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
+  import Version from './lib/Version.svelte'
   import { testApi } from './services/api'
 
   let apiResult: string = '';
@@ -44,6 +45,10 @@
   <p class="read-the-docs">
     Click on the Vite and Svelte logos to learn more
   </p>
+
+  <footer>
+    <Version />
+  </footer>
 </main>
 
 <style>
